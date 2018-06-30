@@ -10,7 +10,8 @@ Todo items are:
 - duplicatable
 - mass clearable
 - filterable
+- stats of incompleted todo items
 
-_Additional_: shows stats on incompleted todo items
+- **accessible from any tab**
 
 Install browser extension: [Chrome Store](https://codesandbox.io/s/x323nzvp0w)
