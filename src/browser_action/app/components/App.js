@@ -55,6 +55,7 @@ class App extends PureComponent {
               handleClearCompleted={actions.clearCompletedTodos}
               handleFilterByKeyword={actions.filterByKeyword}
               handleClearFilterByKeyword={actions.clearFilterByKeywordTodos}
+              isClearCompletedActive={todoListCount === 0}
             />
             <hr />
             <div className="uk-grid">

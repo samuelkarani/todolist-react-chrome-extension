@@ -7,7 +7,8 @@ const AppBar = ({
   handleAdd,
   handleFilterByKeyword,
   handleClearFilterByKeyword,
-  keyword
+  keyword,
+  isClearCompletedActive
 }) => (
   <div className="uk-flex uk-flex-middle uk-flex-between">
     <div className="uk-grid uk-grid-small uk-flex-middle">
@@ -39,6 +40,7 @@ const AppBar = ({
         onClick={handleClearCompleted}
         className="uk-icon-link uk-margin-small-right uk-hidden@m"
         uk-icon="ban"
+        disabled={isClearCompletedActive}
       />
       <button
         className="uk-button uk-button-small uk-button-default uk-visible@m"
@@ -55,7 +57,8 @@ AppBar.propTypes = {
   handleAdd: PropTypes.func.isRequired,
   handleFilterByKeyword: PropTypes.func.isRequired,
   handleClearFilterByKeyword: PropTypes.func.isRequired,
-  keyword: PropTypes.string.isRequired
+  keyword: PropTypes.string.isRequired,
+  isClearCompletedActive: PropTypes.bool.isRequired
 };
 
 export default AppBar;
