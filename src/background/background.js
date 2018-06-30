@@ -6,10 +6,8 @@ import { rootReducer } from "../browser_action/app";
 
 const middleware = [thunk, logger];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(...middleware))
-);
+// composeEnhancers(applyMiddleware(...middleware))
+const store = createStore(rootReducer, {});
 
 wrapStore(store, {
   portName: "todoList"
