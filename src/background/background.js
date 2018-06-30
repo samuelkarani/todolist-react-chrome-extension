@@ -5,6 +5,7 @@ import logger from "redux-logger";
 import {
   rootReducer,
   ADD_TODO,
+  ACTUAL_ADD_TODO,
   clearFilterByStatusTodos,
   clearFilterByKeywordTodos,
   portName
@@ -15,13 +16,13 @@ const aliases = {
     dispatch(clearFilterByKeywordTodos());
     dispatch(clearFilterByStatusTodos());
     return dispatch({
-      type: ADD_TODO,
+      type: ACTUAL_ADD_TODO,
       id: action.id
     });
   }
 };
 
-const middleware = [thunk, alias(aliases), logger];
+const middleware = [alias(aliases), thunk, logger];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(

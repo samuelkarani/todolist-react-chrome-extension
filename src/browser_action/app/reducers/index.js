@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import undoable, { includeAction } from "redux-undo";
 import TodoClass from "../classes/todo";
 import {
-  ADD_TODO,
+  ACTUAL_ADD_TODO,
   UPDATE_TODO,
   DUPLICATE_TODO,
   REMOVE_TODO,
@@ -19,7 +19,7 @@ import Todo from "../classes/todo";
 
 function getTodoList(state = [], action) {
   switch (action.type) {
-    case ADD_TODO:
+    case ACTUAL_ADD_TODO:
       return [new TodoClass({ id: action.id }), ...state];
 
     case UPDATE_TODO:
