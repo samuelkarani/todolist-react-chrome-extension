@@ -95,7 +95,9 @@ const TodoItem = class extends PureComponent {
               className="uk-checkbox"
               type="checkbox"
               checked={completed}
-              onChange={e => handleUpdate({ completed: e.target.checked, id })}
+              onChange={e =>
+                handleUpdate({ completed: e.target.checked, id, title })
+              }
               uk-tooltip="complete"
             />
           </div>
