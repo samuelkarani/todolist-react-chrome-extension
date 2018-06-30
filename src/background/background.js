@@ -4,7 +4,6 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import {
   rootReducer,
-  ADD_TODO,
   ACTUAL_ADD_TODO,
   clearFilterByStatusTodos,
   clearFilterByKeywordTodos,

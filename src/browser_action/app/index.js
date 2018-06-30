@@ -6,6 +6,7 @@ import {
   clearFilterByStatusTodos
 } from "../app/actions";
 
+// app interface with browser components
 const portName = "todoList";
 
 export {
