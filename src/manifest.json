@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Chrome Extension Webpack",
-  "description": "Lorem ipsum",
+  "name": "Pretty Todolist",
+  "description": "Pretty Todolist",
   "version": "0.0.1",
   "icons": {
     "128": "./favicon.png"
