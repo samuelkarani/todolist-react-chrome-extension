@@ -11,14 +11,18 @@ import {
   TOGGLE_COMPLETE_ALL_TODOS
 } from "../constants";
 
-export const addTodo = id => dispatch => {
-  dispatch(clearFilterByKeywordTodos());
-  dispatch(clearFilterByStatusTodos());
-  return dispatch({
-    type: ADD_TODO,
-    id
-  });
-};
+export const addTodo = id => ({
+  type: ADD_TODO,
+  id
+});
+// export const addTodo = id => dispatch => {
+//   dispatch(clearFilterByKeywordTodos());
+//   dispatch(clearFilterByStatusTodos());
+//   return dispatch({
+//     type: ADD_TODO,
+//     id
+//   });
+// };
 
 export const updateTodo = ({ completed, title, id }) => ({
   type: UPDATE_TODO,

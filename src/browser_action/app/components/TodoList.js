@@ -30,7 +30,10 @@ export const TodoList = ({
 
 TodoList.propTypes = {
   selectId: PropTypes.string,
-  todoList: PropTypes.arrayOf(PropTypes.instanceOf(TodoClass)).isRequired,
+  todoList: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.object, PropTypes.instanceOf(TodoClass)])
+      .isRequired
+  ).isRequired,
   handleUpdate: PropTypes.func.isRequired,
   handleDuplicate: PropTypes.func.isRequired,
   handleRemove: PropTypes.func.isRequired

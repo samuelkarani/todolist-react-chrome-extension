@@ -45,6 +45,7 @@ const AppBar = ({
       <button
         className="uk-button uk-button-small uk-button-default uk-visible@m"
         onClick={handleClearCompleted}
+        disabled={isClearCompletedActive}
       >
         clear completed
       </button>

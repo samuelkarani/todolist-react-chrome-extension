@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import "./app.css";
+import "./styles/app.css";
 import TodoClass from "../classes/todo";
 import TodoList from "./TodoList";
 import AppBar from "./AppBar";
@@ -14,6 +14,7 @@ class App extends PureComponent {
 
   handleAdd = () => {
     const id = ID();
+
     this.props.actions.addTodo(id);
     this.setState({ selectId: id });
   };
@@ -94,8 +95,10 @@ App.propTypes = {
   allCompleted: PropTypes.bool.isRequired,
   keyword: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  filteredTodoList: PropTypes.arrayOf(PropTypes.instanceOf(TodoClass))
-    .isRequired,
+  filteredTodoList: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.object, PropTypes.instanceOf(TodoClass)])
+      .isRequired
+  ).isRequired,
   todoListCount: PropTypes.number.isRequired,
   incompleteCount: PropTypes.number.isRequired,
   actions: PropTypes.object.isRequired
