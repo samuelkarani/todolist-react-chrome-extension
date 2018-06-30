@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import { AppContainer } from "../browser_action/app/index";
+import { AppContainer, portName } from "../browser_action/app/index";
 import { Store } from "react-chrome-redux";
 import { Provider } from "react-redux";
 // uikit
@@ -14,7 +14,7 @@ UIkit.use(Icons);
 window.UIkit = UIkit;
 
 const proxyStore = new Store({
-  portName: "todoList"
+  portName
 });
 
 proxyStore.ready().then(() => {
