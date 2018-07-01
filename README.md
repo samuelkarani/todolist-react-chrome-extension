@@ -16,4 +16,4 @@ Todo items are:
 - **persists changes across browser sessions**
 - **synced across devices with your Google chrome account**
 
-Install browser extension: [Chrome Store](https://codesandbox.io/s/x323nzvp0w)
+Install browser extension: [Chrome Store](https://chrome.google.com/webstore/detail/njjllneccpdeinadhdfkbokfaklanobn/publish-accepted?authuser=0&hl=en-US)

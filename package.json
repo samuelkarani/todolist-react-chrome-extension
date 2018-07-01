@@ -5,7 +5,8 @@
     "license": "UNLICENSED",
     "scripts": {
         "build": "node utils/build.js",
-        "start": "node utils/webserver.js"
+        "start": "node utils/webserver.js",
+        "zip": "rm -rf build.zip && zip -r build.zip build/"
     },
     "dependencies": {
         "prop-types": "^15.6.1",
