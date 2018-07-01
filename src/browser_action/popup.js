@@ -17,7 +17,17 @@ const proxyStore = new Store({
   portName
 });
 
-proxyStore.ready().then(() => {
+// proxyStore.ready().then(() => {
+//   render(
+//     <Provider store={proxyStore}>
+//       <AppContainer />
+//     </Provider>,
+//     document.getElementById("root")
+//   );
+// });
+
+const unsubscribe = proxyStore.subscribe(() => {
+  unsubscribe(); // make sure to only fire once
   render(
     <Provider store={proxyStore}>
       <AppContainer />

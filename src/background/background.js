@@ -28,7 +28,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   rootReducer,
-  loadState("todoList"),
+  { todoList: loadState("todoList") },
   composeEnhancers(applyMiddleware(...middleware))
 );
 
