@@ -1,14 +1,14 @@
 export function loadState(key) {
   return new Promise(function(resolve, reject) {
-    try {
-      chrome.storage.sync.get([key], function(data) {
-        const result = JSON.parse(data[key]);
-        resolve(result);
+    chrome.storage.sync.get([key], function(data) {
+      if (data && data[key]) {
+        const result = data[key];
+        resolve(JSON.parse(result));
         console.log(`loaded ${result.present.length} items from storage`);
-      });
-    } catch (error) {
-      reject("could not load data from storage");
-    }
+      } else {
+        reject("could not load data from storage");
+      }
+    });
   });
 }
 
