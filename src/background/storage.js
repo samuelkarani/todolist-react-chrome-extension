@@ -4,6 +4,7 @@ export function loadState(key) {
       chrome.storage.sync.get([key], function(data) {
         const result = JSON.parse(data[key]);
         resolve(result);
+        console.log(`loaded ${result.present.length} items from storage`);
       });
     } catch (error) {
       reject("could not load data from storage");

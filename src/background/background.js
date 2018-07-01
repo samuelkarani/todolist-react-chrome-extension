@@ -38,7 +38,6 @@ const applySubscribersAndWrapStore = () => {
       1000
     )
   );
-
   wrapStore(store, {
     portName
   });
@@ -57,6 +56,7 @@ loadState("todoList")
     console.error(err);
     store = createStore(
       rootReducer,
+      {},
       composeEnhancers(applyMiddleware(...middleware))
     );
     applySubscribersAndWrapStore();
