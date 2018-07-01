@@ -27,6 +27,23 @@ const middleware = [alias(aliases), thunk, logger];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store;
+
+const applySubscribersAndWrapStore = () => {
+  store.subscribe(
+    _throttle(
+      () =>
+        storeState("todoList", store.getState().todoList)
+          .then(msg => console.log(msg))
+          .catch(err => console.error(err)),
+      1000
+    )
+  );
+
+  wrapStore(store, {
+    portName
+  });
+};
+
 loadState("todoList")
   .then(todoList => {
     store = createStore(
@@ -34,19 +51,13 @@ loadState("todoList")
       { todoList },
       composeEnhancers(applyMiddleware(...middleware))
     );
-    store.subscribe(
-      _throttle(
-        () =>
-          storeState("todoList", store.getState().todoList)
-            .then(msg => console.log(msg))
-            .catch(err => console.error(err)),
-        1000
-      )
-    );
-    wrapStore(store, {
-      portName
-    });
+    applySubscribersAndWrapStore();
   })
   .catch(err => {
     console.error(err);
+    store = createStore(
+      rootReducer,
+      composeEnhancers(applyMiddleware(...middleware))
+    );
+    applySubscribersAndWrapStore();
   });
