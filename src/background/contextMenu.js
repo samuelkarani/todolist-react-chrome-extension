@@ -1,16 +1,16 @@
-const CM = chrome.contextMenus;
-
-const ID = "todoList"
-const menuItem = {
-    id: "todoList",
+export default function setupContextMenus() {
+  const ID = "todoList";
+  const menuItem = {
+    id: ID,
     title: "Add as Todo",
     contexts: ["selection"]
-};
+  };
 
-CM.create(menuItem);
+  contextMenus.create(menuItem);
 
-CM.onClicked.addListener(function (selection) {
+  contextMenus.onClicked.addListener(function(selection) {
     if (selection.id === ID && selection.selectionText) {
-        console.log(`selected: ${selection.selectionText}`)
+      console.log(`selected: ${selection.selectionText}`);
     }
-})
+  });
+}

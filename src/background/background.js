@@ -17,9 +17,12 @@ const performStore = () =>
     .catch(err => console.error(err));
 
 const updateBadge = () => {
-  chrome.browserAction.setBadgeText({
-    text: store.getState().todoList.present.length.toString()
-  });
+  const todoList = store.getState().todoList;
+  if (todoList && todoList.present) {
+    chrome.browserAction.setBadgeText({
+      text: todoList.present.length.toString()
+    });
+  }
 };
 
 const subscribers = () => {

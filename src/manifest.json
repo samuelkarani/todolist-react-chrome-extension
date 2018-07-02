@@ -12,12 +12,14 @@
   },
   "background": {
     "scripts": [
-      "./background.bundle.js"
+      "./background.bundle.js",
+      "./contextMenu.bundle.js"
     ],
     "persistent": true
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "permissions": [
-    "storage"
+    "storage",
+    "contextMenus"
   ]
 }
