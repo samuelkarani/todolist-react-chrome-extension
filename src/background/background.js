@@ -7,6 +7,7 @@ import { rootReducer, portName, addTodo, ID } from "../browser_action/app";
 import { loadState, storeState } from "./storage";
 import aliases from "./aliases";
 import contextMenu from "./contextMenu";
+import performUpdateBadge from "./badge";
 
 const middleware = [alias(aliases), thunk, logger];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -16,12 +17,6 @@ const performStore = () =>
   storeState("todoList", store.getState().todoList)
     .then(msg => console.log(msg))
     .catch(err => console.error(err));
-
-function performUpdateBadge(count) {
-  chrome.browserAction.setBadgeText({
-    text: count.toString()
-  });
-}
 
 const updateBadge = () => {
   const todoList = store.getState().todoList;
