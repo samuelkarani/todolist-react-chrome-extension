@@ -12,8 +12,7 @@
   },
   "background": {
     "scripts": [
-      "./background.bundle.js",
-      "./contextMenu.bundle.js"
+      "./background.bundle.js"
     ],
     "persistent": true
   },

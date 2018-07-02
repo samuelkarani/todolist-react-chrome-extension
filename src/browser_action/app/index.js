@@ -5,8 +5,9 @@ import {
   clearFilterByKeywordTodos,
   clearFilterByStatusTodos
 } from "../app/actions";
+import { addTodo } from "../app/actions";
+import { ID } from "../app/utils";
 
-// app interface with browser components
 const portName = "todoList";
 
 export {
@@ -16,5 +17,7 @@ export {
   ACTUAL_ADD_TODO,
   clearFilterByKeywordTodos,
   clearFilterByStatusTodos,
-  portName
+  portName,
+  addTodo,
+  ID
 };

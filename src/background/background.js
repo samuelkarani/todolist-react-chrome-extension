@@ -3,9 +3,10 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import _throttle from "lodash/throttle";
-import { rootReducer, portName } from "../browser_action/app";
+import { rootReducer, portName, addTodo, ID } from "../browser_action/app";
 import { loadState, storeState } from "./storage";
 import aliases from "./aliases";
+import contextMenu from "./contextMenu";
 
 const middleware = [alias(aliases), thunk, logger];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -34,14 +35,19 @@ const subscribers = () => {
   performStore();
 };
 
-const applySubscribersAndWrapStore = count => {
+const setupStore = count => {
   store.subscribe(_throttle(subscribers, 1000));
-  wrapStore(store, {
-    portName
+  contextMenu({
+    store,
+    addTodo,
+    id: ID()
   });
   if (count && count > 0) {
     performUpdateBadge(count);
   }
+  wrapStore(store, {
+    portName
+  });
 };
 
 loadState("todoList")
@@ -51,8 +57,7 @@ loadState("todoList")
       { todoList },
       composeEnhancers(applyMiddleware(...middleware))
     );
-
-    applySubscribersAndWrapStore(todoList.present.length);
+    setupStore(todoList.present.length);
   })
   .catch(err => {
     console.error(err);
@@ -61,5 +66,5 @@ loadState("todoList")
       {},
       composeEnhancers(applyMiddleware(...middleware))
     );
-    applySubscribersAndWrapStore();
+    setupStore();
   });

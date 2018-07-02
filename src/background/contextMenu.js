@@ -1,4 +1,4 @@
-export default function setupContextMenus() {
+export default function setupContextMenus({ store, addTodo, id }) {
   const ID = "todoList";
   const menuItem = {
     id: ID,
@@ -6,11 +6,11 @@ export default function setupContextMenus() {
     contexts: ["selection"]
   };
 
-  contextMenus.create(menuItem);
+  chrome.contextMenus.create(menuItem);
 
-  contextMenus.onClicked.addListener(function(selection) {
-    if (selection.id === ID && selection.selectionText) {
-      console.log(`selected: ${selection.selectionText}`);
+  chrome.contextMenus.onClicked.addListener(function(selection) {
+    if (selection.menuItemId === ID && selection.selectionText) {
+      store.dispatch(addTodo({ id, title: selection.selectionText }));
     }
   });
 }
