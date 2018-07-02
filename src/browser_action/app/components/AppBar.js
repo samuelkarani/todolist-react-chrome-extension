@@ -41,6 +41,7 @@ const AppBar = ({
         className="uk-icon-link uk-margin-small-right uk-hidden@m"
         uk-icon="ban"
         disabled={isClearCompletedActive}
+        uk-tooltip="title: Clear Completed; pos: left"
       />
       <button
         className="uk-button uk-button-small uk-button-default uk-visible@m"

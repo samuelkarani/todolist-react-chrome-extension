@@ -1,6 +1,6 @@
 export function loadState(key) {
-  return new Promise(function(resolve, reject) {
-    chrome.storage.sync.get([key], function(data) {
+  return new Promise(function (resolve, reject) {
+    chrome.storage.sync.get([key], function (data) {
       if (data && data[key]) {
         const result = data[key];
         resolve(JSON.parse(result));
@@ -13,10 +13,12 @@ export function loadState(key) {
 }
 
 export function storeState(key, value) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     try {
       const stringValue = JSON.stringify(value);
-      chrome.storage.sync.set({ [key]: stringValue }, function() {
+      chrome.storage.sync.set({
+        [key]: stringValue
+      }, function () {
         resolve(`saved ${value.present.length} items`);
       });
     } catch (error) {

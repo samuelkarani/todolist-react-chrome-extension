@@ -9,6 +9,7 @@
         "zip": "rm -rf build.zip && zip -r build.zip build/"
     },
     "dependencies": {
+        "lodash.throttle": "^4.1.1",
         "prop-types": "^15.6.1",
         "react": "^16.4.0",
         "react-chrome-redux": "^2.0.0-alpha.1",
