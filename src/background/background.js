@@ -25,7 +25,7 @@ function performUpdateBadge(count) {
 
 const updateBadge = () => {
   const todoList = store.getState().todoList;
-  if (todoList && todoList.present) {
+  if (todoList && todoList.present && todoList.present.length) {
     performUpdateBadge(todoList.present.length);
   }
 };

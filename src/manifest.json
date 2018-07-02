@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Pretty Todolist",
   "description": "Pretty Todolist",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "icons": {
     "128": "./favicon.png"
   },
@@ -11,14 +11,9 @@
     "default_icon": "./favicon.png"
   },
   "background": {
-    "scripts": [
-      "./background.bundle.js"
-    ],
-    "persistent": true
+    "scripts": ["./background.bundle.js"],
+    "persistent": false
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-  "permissions": [
-    "storage",
-    "contextMenus"
-  ]
+  "permissions": ["storage", "contextMenus"]
 }
