@@ -16,7 +16,7 @@ export const FILTER_COMPLETED = "FILTER_COMPLETED";
 export const FILTER_ACTIVE = "FILTER_ACTIVE";
 
 export const undoRedoActions = [
-  ADD_TODO,
+  ACTUAL_ADD_TODO,
   REMOVE_TODO,
   UPDATE_TODO,
   DUPLICATE_TODO,
