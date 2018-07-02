@@ -16,12 +16,16 @@ const performStore = () =>
     .then(msg => console.log(msg))
     .catch(err => console.error(err));
 
+function performUpdateBadge(count) {
+  chrome.browserAction.setBadgeText({
+    text: count.toString()
+  });
+}
+
 const updateBadge = () => {
   const todoList = store.getState().todoList;
   if (todoList && todoList.present) {
-    chrome.browserAction.setBadgeText({
-      text: todoList.present.length.toString()
-    });
+    performUpdateBadge(todoList.present.length);
   }
 };
 
@@ -30,11 +34,14 @@ const subscribers = () => {
   performStore();
 };
 
-const applySubscribersAndWrapStore = () => {
+const applySubscribersAndWrapStore = count => {
   store.subscribe(_throttle(subscribers, 1000));
   wrapStore(store, {
     portName
   });
+  if (count && count > 0) {
+    performUpdateBadge(count);
+  }
 };
 
 loadState("todoList")
@@ -44,7 +51,8 @@ loadState("todoList")
       { todoList },
       composeEnhancers(applyMiddleware(...middleware))
     );
-    applySubscribersAndWrapStore();
+
+    applySubscribersAndWrapStore(todoList.present.length);
   })
   .catch(err => {
     console.error(err);
