@@ -20,7 +20,7 @@ import Todo from "../classes/todo";
 function getTodoList(state = [], action) {
   switch (action.type) {
     case ACTUAL_ADD_TODO:
-      return [new TodoClass({ id: action.id }), ...state];
+      return [new TodoClass({ id: action.id, title: action.title }), ...state];
 
     case UPDATE_TODO:
       const { completed, title, id } = action.updates;

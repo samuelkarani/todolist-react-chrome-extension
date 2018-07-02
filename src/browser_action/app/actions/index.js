@@ -11,9 +11,10 @@ import {
   TOGGLE_COMPLETE_ALL_TODOS
 } from "../constants";
 
-export const addTodo = id => ({
+export const addTodo = ({ id, title = "new todo..." }) => ({
   type: ADD_TODO,
-  id
+  id,
+  title
 });
 
 export const updateTodo = ({ completed, title, id }) => ({

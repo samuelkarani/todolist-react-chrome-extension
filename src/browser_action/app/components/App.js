@@ -14,7 +14,7 @@ class App extends PureComponent {
 
   handleAdd = () => {
     const id = ID();
-    this.props.actions.addTodo(id);
+    this.props.actions.addTodo({ id });
     this.setState({ selectId: id });
   };
 

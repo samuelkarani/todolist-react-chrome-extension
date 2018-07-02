@@ -40,7 +40,7 @@ const setupStore = count => {
   contextMenu({
     store,
     addTodo,
-    id: ID()
+    ID_GENERATOR: ID
   });
   if (count && count > 0) {
     performUpdateBadge(count);
