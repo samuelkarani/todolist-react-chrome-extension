@@ -22,16 +22,16 @@ const aliases = {
   },
   CLEAR_COMPLETED_TODOS: action => dispatch => {
     dispatchFilters(dispatch);
-    return {
+    return dispatch({
       type: ACTUAL_CLEAR_COMPLETED_TODOS
-    };
+    });
   },
   TOGGLE_COMPLETE_ALL_TODOS: action => dispatch => {
     dispatchFilters(dispatch);
-    return {
+    return dispatch({
       type: ACTUAL_TOGGLE_COMPLETE_ALL_TODOS,
       allCompleted: action.allCompleted
-    };
+    });
   }
 };
 
