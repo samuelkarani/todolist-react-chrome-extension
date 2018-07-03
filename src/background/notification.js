@@ -1,15 +1,23 @@
-export default function createNotification(text, count) {
-  chrome.notifications.create("basic", {
-    type: "basic",
-    title: "New Todo",
-    message: `added ${text}`,
-    iconUrl: "../favicon.png",
-    contextMessage: `${count} todos`,
-    buttons: [
+export default function createNotification({ text, total, left }) {
+  chrome.notifications.clear("addTodo", function() {
+    chrome.notifications.create(
+      "addTodo",
       {
-        title: "open",
-        iconUrl: "../favicon.png"
+        type: "basic",
+        title: "New Todo",
+        message: `Added "${text}"`,
+        iconUrl: "../favicon.png",
+        contextMessage: `${left} incomplete out of ${total}`,
+        buttons: [
+          {
+            title: "open",
+            iconUrl: "../favicon.png"
+          }
+        ]
+      },
+      function() {
+        console.log("displayed notification successfully");
       }
-    ]
+    );
   });
 }

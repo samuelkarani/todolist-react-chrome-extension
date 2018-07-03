@@ -7,6 +7,7 @@ import {
 } from "../app/actions";
 import { addTodo } from "../app/actions";
 import { ID } from "../app/utils";
+import { getTodos, getIncompleteTodosCount } from "./selectors";
 
 const portName = "todoList";
 
@@ -19,5 +20,7 @@ export {
   clearFilterByStatusTodos,
   portName,
   addTodo,
-  ID
+  ID,
+  getTodos,
+  getIncompleteTodosCount
 };

@@ -5,7 +5,7 @@ const getStatusFilter = state => state.status;
 
 const getKeywordFilter = state => state.keyword;
 
-const getTodos = state => state.todoList.present;
+export const getTodos = state => state.todoList.present;
 
 const filterByKeyword = (todoList, keyword) =>
   todoList.filter(todo => todo.title.includes(keyword));
