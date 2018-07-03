@@ -18,4 +18,4 @@ Todo items are:
 - **right click and add selection as todo**
 - **shows notifications**
 
-Install browser extension: [Chrome Store](https://chrome.google.com/webstore/detail/pretty-todolist/njjllneccpdeinadhdfkbokfaklanobn/related?hl=en-US&authuser=0)
+Install browser extension: [Chrome Extension Store](https://chrome.google.com/webstore/detail/pretty-todolist/njjllneccpdeinadhdfkbokfaklanobn/related?hl=en-US&authuser=0)
