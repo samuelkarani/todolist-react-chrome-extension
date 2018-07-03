@@ -19,4 +19,4 @@ Todo items are:
 - **shows notifications**
 - **persists changes across browser sessions and when you quit chrome**
 
-Install browser extension: [Chrome Extension Store](https://chrome.google.com/webstore/detail/pretty-todolist/njjllneccpdeinadhdfkbokfaklanobn/related?hl=en-US&authuser=0)
+Install browser extension: [Chrome Extension Store](https://chrome.google.com/webstore/detail/pretty-todolist/njjllneccpdeinadhdfkbokfaklanobn)
