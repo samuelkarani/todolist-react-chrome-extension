@@ -4,16 +4,10 @@ export default function createNotification({ text, total, left }) {
       "addTodo",
       {
         type: "basic",
-        title: "New Todo",
-        message: `Added "${text}"`,
+        title: "Todo added",
+        message: `added "${text}"`,
         iconUrl: "../favicon.png",
-        contextMessage: `${left} incomplete out of ${total}`,
-        buttons: [
-          {
-            title: "open",
-            iconUrl: "../favicon.png"
-          }
-        ]
+        contextMessage: `${left} incomplete out of ${total}`
       },
       function() {
         console.log("displayed notification successfully");

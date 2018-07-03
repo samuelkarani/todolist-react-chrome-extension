@@ -10,8 +10,8 @@ import {
   FILTER_BY_KEYWORD,
   CLEAR_FILTER_BY_KEYWORD,
   CLEAR_FILTER_BY_STATUS,
-  CLEAR_COMPLETED_TODOS,
-  TOGGLE_COMPLETE_ALL_TODOS,
+  ACTUAL_CLEAR_COMPLETED_TODOS,
+  ACTUAL_TOGGLE_COMPLETE_ALL_TODOS,
   FILTER_ALL,
   undoRedoActions
 } from "../constants";
@@ -53,10 +53,10 @@ function getTodoList(state = [], action) {
     case REMOVE_TODO:
       return state.filter(todo => todo.id !== action.id);
 
-    case CLEAR_COMPLETED_TODOS:
+    case ACTUAL_CLEAR_COMPLETED_TODOS:
       return state.filter(todo => todo.completed !== true);
 
-    case TOGGLE_COMPLETE_ALL_TODOS:
+    case ACTUAL_TOGGLE_COMPLETE_ALL_TODOS:
       return state.map(todo =>
         Object.assign(todo, {
           completed: !action.allCompleted

@@ -1,6 +1,13 @@
 import rootReducer from "./reducers";
 import AppContainer from "./containers/AppContainer";
-import { ACTUAL_ADD_TODO, ADD_TODO } from "../app/constants";
+import {
+  ADD_TODO,
+  ACTUAL_ADD_TODO,
+  CLEAR_COMPLETED_TODOS,
+  ACTUAL_CLEAR_COMPLETED_TODOS,
+  TOGGLE_COMPLETE_ALL_TODOS,
+  ACTUAL_TOGGLE_COMPLETE_ALL_TODOS
+} from "../app/constants";
 import {
   clearFilterByKeywordTodos,
   clearFilterByStatusTodos
@@ -16,6 +23,10 @@ export {
   AppContainer,
   ADD_TODO,
   ACTUAL_ADD_TODO,
+  CLEAR_COMPLETED_TODOS,
+  ACTUAL_CLEAR_COMPLETED_TODOS,
+  TOGGLE_COMPLETE_ALL_TODOS,
+  ACTUAL_TOGGLE_COMPLETE_ALL_TODOS,
   clearFilterByKeywordTodos,
   clearFilterByStatusTodos,
   portName,
