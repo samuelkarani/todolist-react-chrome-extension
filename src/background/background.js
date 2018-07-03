@@ -1,5 +1,5 @@
 import { wrapStore, alias } from "react-chrome-redux";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import _throttle from "lodash/throttle";
@@ -10,10 +10,9 @@ import contextMenu from "./contextMenu";
 import performUpdateBadge from "./badge";
 
 const storeName = "todoList";
-const QUOTA_BYTES_PER_ITEM = 8192;
+window.storeName = storeName;
 
 const middleware = [alias(aliases), thunk, logger];
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store;
 const performStore = () =>
@@ -53,30 +52,12 @@ loadState(storeName)
     store = createStore(
       rootReducer,
       { todoList },
-      composeEnhancers(applyMiddleware(...middleware))
+      applyMiddleware(...middleware)
     );
     setupStore(todoList.present.length);
   })
   .catch(err => {
     console.error(err);
-    store = createStore(
-      rootReducer,
-      {},
-      composeEnhancers(applyMiddleware(...middleware))
-    );
+    store = createStore(rootReducer, {}, applyMiddleware(...middleware));
     setupStore();
   });
-
-// clear storage when theres little space
-chrome.storage.onChanged.addListener(function(store, area) {
-  if (area === "sync") {
-    chrome.storage.sync.getBytesInUse(storeName, function(bytes) {
-      if (bytes > QUOTA_BYTES_PER_ITEM - 1024) {
-        chrome.storage.sync.remove(storeName, function() {
-          console.log(`refreshing storage`);
-        });
-      }
-      console.log(`bytes so far ${bytes}`);
-    });
-  }
-});

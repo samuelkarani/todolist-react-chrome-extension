@@ -32,7 +32,13 @@ if (fileSystem.existsSync(secretsPath)) {
 var options = {
   entry: {
     popup: path.join(__dirname, "src", "browser_action", "popup.js"),
-    background: path.join(__dirname, "src", "background", "background.js")
+    background: path.join(__dirname, "src", "background", "background.js"),
+    storageManager: path.join(
+      __dirname,
+      "src",
+      "background",
+      "storageManager.js"
+    )
   },
   output: {
     path: path.join(__dirname, "build"),

@@ -11,7 +11,7 @@
     "default_icon": "./favicon.png"
   },
   "background": {
-    "scripts": ["./background.bundle.js"],
+    "scripts": ["./background.bundle.js", "./storageManager.bundle.js"],
     "persistent": false
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
