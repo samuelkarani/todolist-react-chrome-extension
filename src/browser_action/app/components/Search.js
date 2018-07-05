@@ -15,7 +15,7 @@ const Search = ({
       <input
         className="uk-search-input uk-form-small uk-form-width-medium"
         type="search"
-        placeholder="Filter..."
+        placeholder="Filter by keyword..."
         onChange={e => handleFilterByKeyword(e.target.value.toLowerCase())}
         value={keyword}
       />

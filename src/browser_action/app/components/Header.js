@@ -34,7 +34,7 @@ const Header = ({
           onClick={() => handleFilterByStatus(FILTER_ACTIVE)}
           className={status === FILTER_ACTIVE ? "uk-active" : ""}
         >
-          <a>Active</a>
+          <a>Undone</a>
         </li>
         <li
           onClick={() => handleFilterByStatus(FILTER_COMPLETED)}
@@ -46,7 +46,7 @@ const Header = ({
 
       <div className="uk-visible@m">
         <p className="uk-text-meta uk-text-small">{`
-        ${incompleteCount} item${incompleteCount > 1 ? "s" : ""} left`}</p>
+        ${incompleteCount} item${incompleteCount > 1 ? "s" : ""} undone`}</p>
       </div>
     </div>
   );
