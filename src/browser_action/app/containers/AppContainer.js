@@ -3,6 +3,13 @@ import { bindActionCreators } from "redux";
 import * as actions from "../actions";
 import { getIncompleteTodosCount, getTodosFiltered } from "../selectors";
 import App from "../components/App";
+// uikit
+import "uikit/dist/css/uikit.min.css";
+import UIkit from "uikit";
+import Icons from "uikit/dist/js/uikit-icons";
+
+UIkit.use(Icons);
+window.UIkit = UIkit;
 
 const areAllTodosCompleted = todoList =>
   todoList.every(todo => todo.completed === true);
