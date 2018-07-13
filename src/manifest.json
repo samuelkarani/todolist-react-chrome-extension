@@ -1,8 +1,6 @@
 {
   "manifest_version": 2,
   "name": "Pretty Todolist",
-  "description": "Pretty Todolist",
-  "version": "0.0.4",
   "icons": {
     "128": "./favicon.png"
   },
