@@ -12,7 +12,7 @@ export default function setupContextMenus({ store, addTodo, ID_GENERATOR }) {
   chrome.contextMenus.removeAll(function() {
     chrome.contextMenus.create(menuItem);
     chrome.contextMenus.onClicked.addListener(function(selection) {
-      const text = selection.selectionText;
+      const text = selection.selectionText.toLowerCase();
       if (selection.menuItemId === ID && text) {
         store.dispatch(addTodo({ id: ID_GENERATOR(), title: text }));
         const state = store.getState();
