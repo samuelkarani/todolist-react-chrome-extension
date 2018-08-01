@@ -87,6 +87,11 @@ var options = {
             })
           );
         }
+      },{
+        from: "./src/favicon.png"
+      },
+      {
+        from: "./src/logo.png"
       }
     ]),
     new HtmlWebpackPlugin({
