@@ -88,7 +88,7 @@ var options = {
           );
         }
       },{
-        from: "./src/favicon.png"
+        from: "./src/favicon1.png"
       },
       {
         from: "./src/logo.png"
